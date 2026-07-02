@@ -7,8 +7,13 @@ module.exports = {
     async execute(message, args) {
         const city = args.join(' ');
         if (!city) return message.reply('Lütfen bir şehir adı girin.');
-        
-        const apiKey = '';
+
+        const apiKey = process.env.OPENWEATHER_API_KEY;
+        if (!apiKey) {
+            console.error('[hava-durumu] OPENWEATHER_API_KEY is not set in .env');
+            return message.reply('Hava durumu servisi yapılandırılmamış. Lütfen yöneticiye bildirin.');
+        }
+
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=tr`;
         
         try {
