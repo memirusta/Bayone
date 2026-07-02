@@ -8,7 +8,7 @@ module.exports = {
         const city = args.join(' ');
         if (!city) return message.reply('Lütfen bir şehir adı girin.');
         
-        const apiKey = '775cd164ba1309b61765f463e530e368';
+        const apiKey = '';
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=tr`;
         
         try {
